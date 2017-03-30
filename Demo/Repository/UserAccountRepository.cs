@@ -46,7 +46,7 @@ namespace Nap.Demo.Repository
             UserAccount userAccount = null;
             if (dto != null)
             {
-                userAccount = new UserAccount { Id = dto.Id, Name = dto.Name, Address = dto.Address, Postal = dto.Postal, Email = dto.Email });
+                userAccount = new UserAccount { Id = dto.Id, Name = dto.Name, Address = dto.Address, Postal = dto.Postal, Email = dto.Email };
             }
             return userAccount;
         }
