@@ -42,16 +42,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="EntityFramework\Nap.Demo.Data.EntityFramework.csproj">
-      <Project>{54c5ea03-4570-4af0-bdda-7b92589eef20}</Project>
-      <Name>Nap.Demo.Data.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="Simple\Nap.Demo.Data.Simple.csproj">
-      <Project>{7b951abf-6d0b-4609-92ff-90670c7157cd}</Project>
-      <Name>Nap.Demo.Data.Simple</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
