@@ -1,4 +1,5 @@
-﻿using Nap.Demo.Domain;
+﻿using Nap.Demo.Data;
+using Nap.Demo.Domain;
 
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,21 @@ namespace Nap.Demo.Repository
 {
     class UserAccountRepository : IUserAccountRepository
     {
+        // internals - for the demo sample code, just using the Simple provider, use ProviderFactory to get it.
+        private IUserAccountProvider _userAccountProvider = ProviderFactory.GetSimpleUserAccountProvider();
+
+        #region IUserAccountRepository Implementation
         UserAccount IUserAccountRepository.Add(UserAccount item)
         {
-            throw new NotImplementedException();
+            var userAccountDTO = _userAccountProvider.Add(new UserAccountDTO { Id = item.Id, Name = item.Name, Address = item.Address, Postal = item.Postal, Email = item.Email });
+            return new UserAccount
+            {
+                Id = userAccountDTO.Id,
+                Name = userAccountDTO.Name,
+                Address = userAccountDTO.Address,
+                Postal = userAccountDTO.Postal,
+                Email = userAccountDTO.Email
+            };
         }
 
         IEnumerable<UserAccount> IUserAccountRepository.GetAll()
@@ -34,5 +47,6 @@ namespace Nap.Demo.Repository
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
