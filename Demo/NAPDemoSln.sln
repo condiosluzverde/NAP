@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nap.Demo.Domain", "Nap.Demo.Domain", "{615012AE-0151-42A9-9EB8-86F8C5FF17E1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nap.Demo.Data", "Nap.Demo.Data", "{F35160A9-A5F3-4442-9A05-CA36B7F48640}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nap.Demo.Repository", "Nap.Demo.Repository", "{264C7AF3-0326-49C8-A2D3-91794D82905B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Data.Simple", "Data\Simple\Nap.Demo.Data.Simple.csproj", "{7B951ABF-6D0B-4609-92FF-90670C7157CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Data.EntityFramework", "Data\EntityFramework\Nap.Demo.Data.EntityFramework.csproj", "{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}"
@@ -44,9 +38,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7B951ABF-6D0B-4609-92FF-90670C7157CD} = {F35160A9-A5F3-4442-9A05-CA36B7F48640}
 		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20} = {F35160A9-A5F3-4442-9A05-CA36B7F48640}
-		{80934AE3-E7B8-49CE-A5EB-F22D48BDBA36} = {615012AE-0151-42A9-9EB8-86F8C5FF17E1}
-		{090D0CF3-90DD-469C-B065-8BDE3D2C4B2C} = {264C7AF3-0326-49C8-A2D3-91794D82905B}
 	EndGlobalSection
 EndGlobal
