@@ -76,7 +76,7 @@ namespace Nap.Demo.Data
             {
                 if (disposing)
                 {
-                    // jam2017 - do dispose here.
+                    // jam20170328 - SimpleUserAccountProvider does not have any resourses that implement Dispose().
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
