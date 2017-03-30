@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Repository", "Repo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Data.Simple", "Data\Simple\Nap.Demo.Data.Simple.csproj", "{7B951ABF-6D0B-4609-92FF-90670C7157CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Data.EntityFramework", "Data\EntityFramework\Nap.Demo.Data.EntityFramework.csproj", "{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7B951ABF-6D0B-4609-92FF-90670C7157CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B951ABF-6D0B-4609-92FF-90670C7157CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B951ABF-6D0B-4609-92FF-90670C7157CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{090D0CF3-90DD-469C-B065-8BDE3D2C4B2C} = {264C7AF3-0326-49C8-A2D3-91794D82905B}
 		{7B951ABF-6D0B-4609-92FF-90670C7157CD} = {F35160A9-A5F3-4442-9A05-CA36B7F48640}
+		{54C5EA03-4570-4AF0-BDDA-7B92589EEF20} = {F35160A9-A5F3-4442-9A05-CA36B7F48640}
 	EndGlobalSection
 EndGlobal
