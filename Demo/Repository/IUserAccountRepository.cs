@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nap.Demo.Repository
 {
-    interface IUserAccountRepository
+    public interface IUserAccountRepository
     {
         /// <summary>
         /// 

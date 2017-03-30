@@ -165,6 +165,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserAccountsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,7 +227,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Nap.Demo.Domain.csproj">
+      <Project>{80934ae3-e7b8-49ce-a5eb-f22d48bdba36}</Project>
+      <Name>Nap.Demo.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Repository\Nap.Demo.Repository.csproj">
+      <Project>{090d0cf3-90dd-469c-b065-8bde3d2c4b2c}</Project>
+      <Name>Nap.Demo.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
   </ItemGroup>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Nap.Demo.Repository
 {
-    class UserAccountRepository : IUserAccountRepository, IDisposable
+    public class UserAccountRepository : IUserAccountRepository, IDisposable
     {
         // internals - for the demo sample code, just using the Simple provider, use ProviderFactory to get it.
         private IUserAccountProvider _userAccountProvider = ProviderFactory.GetSimpleUserAccountProvider();
