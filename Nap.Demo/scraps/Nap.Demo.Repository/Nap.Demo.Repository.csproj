@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE8F6150-DAF8-4724-A825-608A62EC0E79}</ProjectGuid>
+    <ProjectGuid>{483A9325-1463-41BB-A8BF-290B095ACC3A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nap.Demo.Data</RootNamespace>
-    <AssemblyName>Nap.Demo.Data</AssemblyName>
+    <RootNamespace>Nap.Demo.Repository</RootNamespace>
+    <AssemblyName>Nap.Demo.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
