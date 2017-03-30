@@ -32,9 +32,9 @@ namespace Nap.Demo.Repository
         {
             IEnumerable<UserAccountDTO> dtoAll = _userAccountProvider.GetAll();
             List<UserAccount> all = new List<UserAccount>();
-            foreach (UserAccountDTO uto in dtoAll)
+            foreach (UserAccountDTO dto in dtoAll)
             {
-                all.Add(new UserAccount { Id = uto.Id, Name = uto.Name, Address = uto.Address, Postal = uto.Postal, Email = uto.Email });
+                all.Add(new UserAccount { Id = dto.Id, Name = dto.Name, Address = dto.Address, Postal = dto.Postal, Email = dto.Email });
             }
             return all as IEnumerable<UserAccount>;
 
