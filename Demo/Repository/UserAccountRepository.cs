@@ -30,22 +30,40 @@ namespace Nap.Demo.Repository
 
         IEnumerable<UserAccount> IUserAccountRepository.GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<UserAccountDTO> dtoAll = _userAccountProvider.GetAll();
+            List<UserAccount> all = new List<UserAccount>();
+            foreach (UserAccountDTO uto in dtoAll)
+            {
+                all.Add(new UserAccount { Id = uto.Id, Name = uto.Name, Address = uto.Address, Postal = uto.Postal, Email = uto.Email });
+            }
+            return all as IEnumerable<UserAccount>;
+
         }
 
         UserAccount IUserAccountRepository.GetUserAccount(int id)
         {
-            throw new NotImplementedException();
+            UserAccountDTO dto = _userAccountProvider.GetUserAccount(id);
+            UserAccount userAccount = null;
+            if (dto != null)
+            {
+                userAccount = new UserAccount { Id = dto.Id, Name = dto.Name, Address = dto.Address, Postal = dto.Postal, Email = dto.Email });
+            }
+            return userAccount;
         }
 
         void IUserAccountRepository.Remove(int id)
         {
-            throw new NotImplementedException();
+            _userAccountProvider.Remove(id);
         }
 
         bool IUserAccountRepository.Update(UserAccount item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+            UserAccountDTO dto = new UserAccountDTO { Id = item.Id, Name = item.Name, Address = item.Address, Postal = item.Postal, Email = item.Email };
+            return _userAccountProvider.Update(dto);
         }
         #endregion
     }
