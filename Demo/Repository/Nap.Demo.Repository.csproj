@@ -42,16 +42,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Simple\Nap.Demo.Data.Simple.csproj">
-      <Project>{7b951abf-6d0b-4609-92ff-90670c7157cd}</Project>
-      <Name>Nap.Demo.Data.Simple</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain\Nap.Demo.Domain.csproj">
-      <Project>{80934ae3-e7b8-49ce-a5eb-f22d48bdba36}</Project>
-      <Name>Nap.Demo.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
