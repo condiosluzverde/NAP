@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUserAccountProvider.cs" />
+    <Compile Include="Providers\EFUserAccountProvider.cs" />
+    <Compile Include="Providers\IUserAccountProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ProviderFactory.cs" />
+    <Compile Include="DataTransferObjects\UserAccountDTO.cs" />
+    <Compile Include="Providers\SimpleUserAccountProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
