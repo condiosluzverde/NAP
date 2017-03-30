@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{090D0CF3-90DD-469C-B065-8BDE3D2C4B2C}</ProjectGuid>
+    <ProjectGuid>{5639C2A8-855F-48F0-B3E6-04CC6A7CC6F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nap.Demo.Repository</RootNamespace>
-    <AssemblyName>Nap.Demo.Repository</AssemblyName>
+    <RootNamespace>Nap.Demo.Data</RootNamespace>
+    <AssemblyName>Nap.Demo.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,13 +43,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Nap.Demo.Data.csproj">
-      <Project>{5639c2a8-855f-48f0-b3e6-04cc6a7cc6f8}</Project>
-      <Name>Nap.Demo.Data</Name>
+    <ProjectReference Include="EntityFramework\Nap.Demo.Data.EntityFramework.csproj">
+      <Project>{54c5ea03-4570-4af0-bdda-7b92589eef20}</Project>
+      <Name>Nap.Demo.Data.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Nap.Demo.Domain.csproj">
-      <Project>{80934ae3-e7b8-49ce-a5eb-f22d48bdba36}</Project>
-      <Name>Nap.Demo.Domain</Name>
+    <ProjectReference Include="Simple\Nap.Demo.Data.Simple.csproj">
+      <Project>{7b951abf-6d0b-4609-92ff-90670c7157cd}</Project>
+      <Name>Nap.Demo.Data.Simple</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
