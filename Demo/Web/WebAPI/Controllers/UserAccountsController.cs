@@ -1,4 +1,5 @@
 ﻿using Nap.Demo.Repository;
+using Nap.Demo.Data;
 using Nap.Demo.Domain;
 
 using System;
@@ -12,7 +13,8 @@ namespace Nap.Demo.WebAPI.Controllers
 {
     public class UserAccountsController : ApiController
     {
-        private IUserAccountRepository _userAccountRepository = new UserAccountRepository();
+        // For the sample, inject the simple provider
+        private IUserAccountRepository _userAccountRepository = new UserAccountRepository(ProviderFactory.GetSimpleUserAccountProvider());
 
         public IEnumerable<UserAccount> GetAll()
         {

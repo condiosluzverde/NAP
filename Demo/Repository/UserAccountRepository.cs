@@ -11,8 +11,29 @@ namespace Nap.Demo.Repository
 {
     public class UserAccountRepository : IUserAccountRepository, IDisposable
     {
-        // internals - for the demo sample code, just using the Simple provider, use ProviderFactory to get it.
-        private IUserAccountProvider _userAccountProvider = ProviderFactory.GetSimpleUserAccountProvider();
+        private IUserAccountProvider _userAccountProvider = null;
+
+        public UserAccountRepository()
+        {
+            // Use default provider
+            _userAccountProvider = getDefaultProvider();
+        }
+
+        public UserAccountRepository(IUserAccountProvider provider)
+        {
+            if (provider == null)
+            {
+                throw new ArgumentNullException(nameof(provider));
+            }
+
+            // This is the injected persistence provider from the repository client.
+            _userAccountProvider = provider;
+        }
+
+        private IUserAccountProvider getDefaultProvider()
+        {
+            return ProviderFactory.GetSimpleUserAccountProvider();
+        }
 
         #region IUserAccountRepository Implementation
         UserAccount IUserAccountRepository.Add(UserAccount item)
