@@ -14,9 +14,19 @@ namespace Nap.Demo.WebAPI.Controllers
     {
         private IUserAccountRepository _userAccountRepository = new UserAccountRepository();
 
-        IEnumerable<UserAccount> GetAll()
+        public IEnumerable<UserAccount> GetAll()
         {
             return _userAccountRepository.GetAll();
+        }
+
+        public IHttpActionResult GetUserAccount(int id)
+        {
+            var userAccount = _userAccountRepository.GetUserAccount(id);
+            if (userAccount == null)
+            {
+                return NotFound();
+            }
+            return Ok(userAccount);
         }
     }
 }
