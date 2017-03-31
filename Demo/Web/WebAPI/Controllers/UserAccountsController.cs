@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Nap.Demo.WebAPI.Controllers
 {
@@ -29,6 +30,19 @@ namespace Nap.Demo.WebAPI.Controllers
                 return NotFound();
             }
             return Ok(userAccount);
+        }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult Add([FromBody] UserAccount item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            _userAccountRepository.Add(item);
+
+            return CreatedAtRoute("GetUserAccount", new { Id = item.Id }, item);
         }
     }
 }

@@ -59,7 +59,17 @@
         }
 
         function add() {
-            var name = $('#userAccountName');
+            var name = $('#txtName').val();
+            var address = $('#txtAddress').val();
+            var postal = $('#txtPostal').val();
+            var email = $('#txtEmail').val();
+            $.getJSON(uri)
+                .done(function (data) {
+                    $('#add-result').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#add-result').text('Error: ' + err);
+                });
         }
 
         function remove() {
