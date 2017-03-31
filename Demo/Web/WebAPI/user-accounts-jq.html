@@ -6,28 +6,23 @@
 </head>
 <body>
     <div>
-        <h2>GetAll()</h2>
+        <h2>GetAll()</h2>&nbsp;<input type="button" value="Get All" onclick="getAll();" />
         <ul id="user-accounts" />
-        <!--<br/><br/>
-        <input type="button" value="Refresh" onclick="list();" />-->
     </div>
     <div>
-        <h2>GetUserAccount(id) / Remove(id)</h2>
+        <h2>GetUserAccount(id)</h2>
         <input type="text" id="userIdToGet" size="5" />
-        <input type="button" value="Get(id)" onclick="find();" />&nbsp;|&nbsp;
-        <input type="button" value="Remove(id)" onclick="remove();" />
-        <p id="get-remove-result" />
+        <input type="button" value="Get(id)" onclick="getUserAccount();" />
+        <p id="get-user-account-result" />
     </div>
     <div>
-        <h2>Add(item) / Update(item)</h2>
+        <h2>Add(item)</h2>
         Name:&nbsp;<input type="text" id="txtName" size="25" /><br/>
         Address:&nbsp;<input type="text" id="txtAddress" size="50" /><br/>
         Postal:&nbsp;<input type="text" id="txtPostal" size="50" /><br/>
         Email:&nbsp;<input type="text" id="txtEmail" size="50" /><br/>
         <input type="button" value="Add" onclick="add();" /><br/>
-        Id:&nbsp;<input type="text" id="userIdToUPdate" size="5" />&nbsp;<input type="button" value="Get for Update" onclick="getForUpdate();" />&nbsp;|&nbsp;
-        <input type="button" value="Update" onclick="update();" />
-        <p id="add-update-result" />
+        <p id="add-result" />
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
@@ -35,14 +30,15 @@
         var uri = 'api/UserAccounts';
 
         $(document).ready(function () {
-            list();
+            //getAll();
         });
 
         function formatItem(item) {
             return item.Id + ' | ' + item.Name + ' | ' + item.Address + ' | ' + item.Email;
         }
 
-        function list() {
+        function getAll() {
+            $('#user-accounts').empty();
             $.getJSON(uri)
                 .done(function (data) {
                     $.each(data, function (key, item) {
@@ -51,14 +47,14 @@
                 });
         }
 
-        function find() {
+        function getUserAccount() {
             var id = $('#userIdToGet').val();
             $.getJSON(uri + '/' + id)
                 .done(function (data) {
-                    $('#get-remove-result').text(formatItem(data));
+                    $('#get-user-account-result').text(formatItem(data));
                 })
                 .fail(function (jqXHR, textStatus, err) {
-                    $('#get-remove-result').text('Error: ' + err);
+                    $('#get-user-account-result').text('Error: ' + err);
                 });
         }
 
