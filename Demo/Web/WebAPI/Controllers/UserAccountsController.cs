@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Http.Description;
 
 namespace Nap.Demo.WebAPI.Controllers
 {
@@ -32,17 +33,59 @@ namespace Nap.Demo.WebAPI.Controllers
             return Ok(userAccount);
         }
 
-        [System.Web.Http.HttpPost]
-        public IHttpActionResult Add([FromBody] UserAccount item)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Update(int id, UserAccountDTO userAccountDTO)
         {
-            if (item == null)
+            // not using model binding in this demo.
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            if (id != userAccountDTO.Id)
             {
                 return BadRequest();
             }
 
-            _userAccountRepository.Add(item);
+            UserAccount userAccount = _userAccountRepository.GetUserAccount(id);
+            if (userAccount == null)
+            {
+                return NotFound();
+            }
 
-            return CreatedAtRoute("GetUserAccount", new { Id = item.Id }, item);
+            if (_userAccountRepository.Update(userAccount))
+            {
+                return StatusCode(HttpStatusCode.OK);
+            }
+            return StatusCode(HttpStatusCode.NotModified);
+        }
+
+        [ResponseType(typeof(UserAccount))]
+        public IHttpActionResult Add(UserAccount userAccount)
+        {
+            // Not using model binding in the demo app
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            UserAccount newUserAccount = _userAccountRepository.Add(userAccount);
+
+            return CreatedAtRoute("DefaultApi", new { id = newUserAccount.Id }, newUserAccount);
+        }
+
+        [ResponseType(typeof(UserAccount))]
+        public IHttpActionResult Removed(int id)
+        {
+            UserAccount userAccount = _userAccountRepository.GetUserAccount(id);
+            if (userAccount == null)
+            {
+                return NotFound();
+            }
+
+            _userAccountRepository.Remove(id);
+
+            return Ok(userAccount);
         }
     }
 }
