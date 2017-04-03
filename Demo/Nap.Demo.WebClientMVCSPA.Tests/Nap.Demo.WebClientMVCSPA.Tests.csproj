@@ -99,12 +99,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Nap.Demo.WebClientMVCSPA\Nap.Demo.WebClientMVCSPA.csproj">
-      <Project>{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}</Project>
-      <Name>Nap.Demo.WebClientMVCSPA</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
