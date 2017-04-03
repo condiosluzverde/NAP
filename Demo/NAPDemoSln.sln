@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebAPI.Tests", "We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientAngular", "Web\WebClientAngular\Nap.Demo.WebClientAngular.csproj", "{A26B381A-7ABE-4957-8871-5685B410A4E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVCSPA", "Nap.Demo.WebClientMVCSPA\Nap.Demo.WebClientMVCSPA.csproj", "{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVCSPA.Tests", "Nap.Demo.WebClientMVCSPA.Tests\Nap.Demo.WebClientMVCSPA.Tests.csproj", "{4819410D-AD96-400A-A6AC-D87F53848E3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A26B381A-7ABE-4957-8871-5685B410A4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A26B381A-7ABE-4957-8871-5685B410A4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A26B381A-7ABE-4957-8871-5685B410A4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4E84F9-D8C5-4647-8A7A-3C72E81EEEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4819410D-AD96-400A-A6AC-D87F53848E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4819410D-AD96-400A-A6AC-D87F53848E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4819410D-AD96-400A-A6AC-D87F53848E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4819410D-AD96-400A-A6AC-D87F53848E3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
