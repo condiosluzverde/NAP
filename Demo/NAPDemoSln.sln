@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebAPI", "Web\WebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebAPI.Tests", "Web\WebAPI.Tests\Nap.Demo.WebAPI.Tests.csproj", "{812865DD-C41E-4842-BB2E-FB9768CE8EDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Web.Client", "Web\Client\Nap.Demo.Web.Client.csproj", "{E083EC7F-9670-40A1-807F-BEC1B5F7D01A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{812865DD-C41E-4842-BB2E-FB9768CE8EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{812865DD-C41E-4842-BB2E-FB9768CE8EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{812865DD-C41E-4842-BB2E-FB9768CE8EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E083EC7F-9670-40A1-807F-BEC1B5F7D01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E083EC7F-9670-40A1-807F-BEC1B5F7D01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E083EC7F-9670-40A1-807F-BEC1B5F7D01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E083EC7F-9670-40A1-807F-BEC1B5F7D01A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
