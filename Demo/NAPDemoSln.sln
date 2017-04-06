@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.Data", "Data\Nap.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebAPI", "Web\WebAPI\Nap.Demo.WebAPI.csproj", "{CB9456A3-EEB2-456A-AF07-7D47BFF75610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVC", "Web\Nap.Demo.WebClientMVC\Nap.Demo.WebClientMVC.csproj", "{C834ED75-FECC-40CE-9770-25B30D31EC55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVC", "Web\WebClientMVC\Nap.Demo.WebClientMVC.csproj", "{C834ED75-FECC-40CE-9770-25B30D31EC55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVC.Tests", "Nap.Demo.WebClientMVC.Tests\Nap.Demo.WebClientMVC.Tests.csproj", "{18A208B7-9C27-4943-8BF8-80592BF05820}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nap.Demo.WebClientMVC.Tests", "Web\WebClientMVC.Tests\Nap.Demo.WebClientMVC.Tests.csproj", "{18A208B7-9C27-4943-8BF8-80592BF05820}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
