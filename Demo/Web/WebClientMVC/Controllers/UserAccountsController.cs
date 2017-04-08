@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Nap.Demo.WebClientMVC.Models;
+using Nap.Demo.WebClientMVC.Services;
+using Nap.Demo.WebClientMVC.ViewModels;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +15,15 @@ namespace Nap.Demo.WebClientMVC.Controllers
         // GET: UserAccounts
         public ActionResult Index()
         {
-            return View();
+            NapDemoService nds = new NapDemoService();
+            List<UserAccount> mlist = nds.GetAll();
+
+            List<UserAccountViewModel> vmlist = new List<UserAccountViewModel>();
+            foreach (UserAccount ua in mlist)
+            {
+                vmlist.Add(new UserAccountViewModel(ua));
+            }
+            return View(vmlist);
         }
 
         // GET: UserAccounts/Details/5
