@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Nap.Demo.WebClientMVC
+namespace Nap.Demo.WebMVC
 {
     public class BundleConfig
     {

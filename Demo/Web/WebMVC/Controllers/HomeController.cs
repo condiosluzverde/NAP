@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Nap.Demo.WebClientMVC.Controllers
+namespace Nap.Demo.WebMVC.Controllers
 {
     public class HomeController : Controller
     {

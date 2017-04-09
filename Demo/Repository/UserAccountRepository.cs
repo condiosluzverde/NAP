@@ -13,12 +13,6 @@ namespace Nap.Demo.Repository
     {
         private IUserAccountProvider _userAccountProvider = null;
 
-        public UserAccountRepository()
-        {
-            // Use default provider
-            _userAccountProvider = getDefaultProvider();
-        }
-
         public UserAccountRepository(IUserAccountProvider provider)
         {
             if (provider == null)
@@ -28,11 +22,6 @@ namespace Nap.Demo.Repository
 
             // This is the injected persistence provider from the repository client.
             _userAccountProvider = provider;
-        }
-
-        private IUserAccountProvider getDefaultProvider()
-        {
-            return ProviderFactory.GetSimpleUserAccountProvider();
         }
 
         #region IUserAccountRepository Implementation

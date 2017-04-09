@@ -10,6 +10,7 @@ namespace Nap.Demo.WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Properties.TryAdd("UserAccountRepository", new Repository.UserAccountRepository(Data.ProviderFactory.GetSimpleUserAccountProvider()));
 
             // Web API routes
             config.MapHttpAttributeRoutes();

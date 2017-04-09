@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Nap.Demo.WebClientMVC
+namespace Nap.Demo.WebMVC
 {
     public class RouteConfig
     {

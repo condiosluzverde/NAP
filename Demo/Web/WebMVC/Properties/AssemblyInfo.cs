@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Nap.Demo.WebAPI.Tests")]
+[assembly: AssemblyTitle("Nap.Demo.WebMVC")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft Corporation")]
-[assembly: AssemblyProduct("Nap.Demo.WebAPI.Tests")]
+[assembly: AssemblyProduct("Nap.Demo.WebMVC")]
 [assembly: AssemblyCopyright("Copyright © Microsoft Corporation 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b975c5b1-10ee-42ff-813c-c582e5d9ed6d")]
+[assembly: Guid("2d9967fb-0f58-4620-bd34-e776337a42c1")]
 
 // Version information for an assembly consists of the following four values:
 //

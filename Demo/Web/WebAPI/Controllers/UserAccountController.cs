@@ -15,7 +15,20 @@ namespace Nap.Demo.WebAPI.Controllers
     {
         // For the sample, inject the simple provider literally here (requires reference to .Data (which should be encapsulated behind .Provider)
         // - for a real project we would want .net framework to be configured to inject this, or use an IoC container.
-        private IUserAccountRepository _userAccountRepository = new UserAccountRepository(ProviderFactory.GetSimpleUserAccountProvider());
+        private IUserAccountRepository _userAccountRepository
+        {
+            get
+            {
+                object repo = null;
+                bool canHazUserAccountRepo = Configuration.Properties.TryGetValue("UserAccountRepository", out repo);
+                if (!canHazUserAccountRepo)
+                {
+                    throw new WebException("WebDemoAPI: Could not obtain UserAccountRepository from configuration.");
+                }
+                return repo as IUserAccountRepository;
+                //return new UserAccountRepository(ProviderFactory.GetSimpleUserAccountProvider());
+            }
+        }
 
         // GET: api/UserAccount
         public IEnumerable<UserAccount> Get()

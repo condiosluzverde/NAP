@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Nap.Demo.Data;
+using Nap.Demo.Repository;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
