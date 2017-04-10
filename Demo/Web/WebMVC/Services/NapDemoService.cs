@@ -54,5 +54,11 @@ namespace Nap.Demo.WebMVC.Services
 
             return result;
         }
+
+        UserAccount Add(UserAccount item)
+        {
+            UserAccount result = null;
+            return result;
+        }
     }
 }

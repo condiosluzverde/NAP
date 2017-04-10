@@ -183,6 +183,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
     <Content Include="Views\UserAccount\Details.cshtml" />
+    <Content Include="Views\UserAccount\Create.cshtml" />
+    <Content Include="Views\UserAccount\Edit.cshtml" />
+    <Content Include="Views\UserAccount\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
