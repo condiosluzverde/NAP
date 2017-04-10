@@ -44,6 +44,15 @@ namespace Nap.Demo.WebMVC.ViewModels
             Email = ua.Email;
         }
 
+        public UserAccountViewModel(string name, string address, string postal, string email)
+        {
+            Id = DEFAULT_ID;
+            Name = name;
+            Address = address;
+            Postal = postal;
+            Email = email;
+        }
+
         public UserAccountViewModel(int id, string name, string address, string postal, string email)
         {
             Id = id;

@@ -55,10 +55,52 @@ namespace Nap.Demo.WebMVC.Services
             return result;
         }
 
-        UserAccount Add(UserAccount item)
+        public UserAccount Add(UserAccount item)
         {
             UserAccount result = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(DemoApiUrl);
+                client.DefaultRequestHeaders.Clear();
+                string jsonContent = JsonConvert.SerializeObject(item);
+                StringContent httpContent = new System.Net.Http.StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                var response = client.PostAsync("UserAccount", httpContent).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    //string responseString = response.Content.ReadAsStringAsync().Result;
+                    //result = JsonConvert.DeserializeObject<UserAccount>(responseString);
+                }
+            }
+
             return result;
+        }
+
+        public void Remove(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(DemoApiUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.DeleteAsync("UserAccount/" + id.ToString()).Result;
+            }
+        }
+
+        public bool Update(UserAccount item)
+        {
+            bool result = false;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(DemoApiUrl);
+                client.DefaultRequestHeaders.Clear();
+                string jsonContent = JsonConvert.SerializeObject(item);
+                StringContent httpContent = new System.Net.Http.StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                var response = client.PutAsync("UserAccount", httpContent).Result;
+                result = response.IsSuccessStatusCode;
+            }
+            return result;
+
         }
     }
 }

@@ -33,6 +33,15 @@ namespace Nap.Demo.WebMVC.Models
             Email = DEFAULT_EMAIL;
         }
 
+        public UserAccount(string name, string address, string postal, string email)
+        {
+            Id = DEFAULT_ID;
+            Name = name;
+            Address = address;
+            Postal = postal;
+            Email = email;
+        }
+
         public UserAccount(int id, string name, string address, string postal, string email)
         {
             Id = id;

@@ -14,6 +14,16 @@ namespace Nap.Demo.WebMVC.Controllers
     {
         private NapDemoService nds = new NapDemoService();
 
+        private UserAccountViewModel fromFormCollection(FormCollection c)
+        {
+            UserAccountViewModel vm = new UserAccountViewModel();
+            vm.Name = c["Name"];
+            vm.Address = c["Address"];
+            vm.Postal = c["Postal"];
+            vm.Email = c["Email"];
+            return vm;
+        }
+
         // GET: UserAccount
         public ActionResult Index()
         {
@@ -51,7 +61,11 @@ namespace Nap.Demo.WebMVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // FYI in a non-demo scenario, DataAnnotations could/would be used in conjunction with ModeState.IsValid here.
+
+                UserAccountViewModel vm = fromFormCollection(collection);
+                UserAccount model = new UserAccount(vm.Name, vm.Address, vm.Postal, vm.Email);
+                //UserAccount newModel = nds.Add(model);
 
                 return RedirectToAction("Index");
             }
@@ -64,7 +78,9 @@ namespace Nap.Demo.WebMVC.Controllers
         // GET: UserAccount/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            UserAccount model = nds.GetUserAccount(id);
+            UserAccountViewModel vm = new UserAccountViewModel(model);
+            return View(vm);
         }
 
         // POST: UserAccount/Edit/5
@@ -73,8 +89,14 @@ namespace Nap.Demo.WebMVC.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                UserAccountViewModel vm = fromFormCollection(collection);
+                UserAccount model = new Models.UserAccount(vm.Id, vm.Name, vm.Address, vm.Postal, vm.Email);
+                bool success = nds.Update(model);
 
+                if (!success)
+                {
+                    // add error here
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -86,7 +108,9 @@ namespace Nap.Demo.WebMVC.Controllers
         // GET: UserAccount/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            UserAccount model = nds.GetUserAccount(id);
+            UserAccountViewModel vm = new UserAccountViewModel(model);
+            return View(vm);
         }
 
         // POST: UserAccount/Delete/5
@@ -95,7 +119,7 @@ namespace Nap.Demo.WebMVC.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                nds.Remove(id);
 
                 return RedirectToAction("Index");
             }
