@@ -2,7 +2,7 @@
 
 This is a Demo app for a prospective client.  This code has no other purpose than to demonstrate current coding ability.
 
-NOTE: The actual implementation is in the Demo folder - these is no code at this level of the repo.
+NOTE: The actual implementation is in the Demo folder, please navigate to Demo to access the Visual Studio solutions/code.
 
 ## Demo Requirements
 
