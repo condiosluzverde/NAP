@@ -31,8 +31,12 @@ namespace Nap.Demo.WebMVC.Controllers
         // GET: UserAccount/Details/5
         public ActionResult Details(int id)
         {
+            UserAccountViewModel vm = null;
 
-            return View();
+            UserAccount model = nds.GetUserAccount(id);
+            vm = new UserAccountViewModel(model);
+
+            return View(vm);
         }
 
         // GET: UserAccount/Create

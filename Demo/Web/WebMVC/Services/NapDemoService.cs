@@ -35,5 +35,24 @@ namespace Nap.Demo.WebMVC.Services
 
             return results;
         }
+
+        public UserAccount GetUserAccount(int id)
+        {
+            UserAccount result = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(DemoApiUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.GetAsync("UserAccount/" + id.ToString()).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseString = response.Content.ReadAsStringAsync().Result;
+                    result = JsonConvert.DeserializeObject<UserAccount>(responseString);
+                }
+            }
+
+            return result;
+        }
     }
 }
