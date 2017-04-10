@@ -1,14 +1,15 @@
 # NAP
 
-NAP is an example project produced solely for demonstration purposes.  There is no actual business usage and no open source benefits to anyone outside of myself.
+This is a Demo app for a prospective client.  This code has no other purpose than to demonstrate current coding ability.
 
-The NAP project is an overall project that can host many sub projects.
+NOTE: The actual implementation is in the Demo folder - these is no code at this level of the repo.
 
-Currently the NAP Demo app is the only project hosted underneath the NAP master solution.
+## Demo Requirements
 
-If other NAP projects are required, the will be placed under this repo.
+1. Create a Web API project that leverages a RESTful architectural style and the HTTP protocol. You
+can use the IAccountRepository interface as your data methods. Production quality code, unit
+tests, DI/IoC etc. are all pluses.
 
-Please proceed to the sub project of interest for further details.
+2. Create a SPA Angular app that utilizes all the above REST api’s.
 
-Thanks,
--james
+## Notes:
