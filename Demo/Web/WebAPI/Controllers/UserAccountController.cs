@@ -26,7 +26,6 @@ namespace Nap.Demo.WebAPI.Controllers
                     throw new WebException("WebDemoAPI: Could not obtain UserAccountRepository from configuration.");
                 }
                 return repo as IUserAccountRepository;
-                //return new UserAccountRepository(ProviderFactory.GetSimpleUserAccountProvider());
             }
         }
 
