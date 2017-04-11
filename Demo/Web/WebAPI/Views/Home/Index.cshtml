@@ -3,5 +3,28 @@
     <p class="lead">The NAP Demo API is an MVC 5 Web API 2 implementation of a Restful API for the Demo User Accounts</p>
 </div>
 <div>
-    <p>API Documentation Home</p>
+    <h2>Requirements:</h2>
+    <ul>
+        <li>Create a Web API project that leverages a RESTful architectural style and the HTTP protocol. You
+can use the IAccountRepository interface as your data methods. Production quality code, unit
+tests, DI/IoC etc. are all pluses.</li>
+    </ul>
+    <h2>Features:</h2>
+    <ul>
+        <li>Uses Visual Studio / ASP.NET 4.5.2 MVC 5 Web API 2 built-in implementation.</li>
+        <li>Brief demo of API documentation via XML comments and built-in doc pages.</li>
+        <li>Domain layer for Busines logic / Model objects.</li>
+        <li>Uses Provider pattern to enable different data persistence implementations (used provided in-memory impl.)</li>
+        <li>Uses simple Dependency Injection, WebApiConfig.Register() method chooses the simple in-memory provider.</li>
+        <li>Uses Repository pattern to de-couple the API code from persistence layer.</li>
+        <li>API uses ASP.NET CORS implementation to enable calls from well-defined domains/ports etc. (enables convenient development)</li>
+        <li>API throws HTTP exceptions to inform client of error conditions.</li>
+        <li>Separate VS.net solution files that enable simultaneous, yet separate debug sessions.</li>
+    </ul>
+    <h2>Known Issues:</h2>
+    <ul>
+        <li>No unit tests - simply due to time constraints (not a decision I would support in production).</li>
+        <li>Not fully production-ready code - some areas do not have full exception handling, or detailed error messages.</li>
+        <li>Did not use an IoC container, seems like VS makes using Unity IoC container framework fairly easy.</li>
+    </ul>
 </div>
