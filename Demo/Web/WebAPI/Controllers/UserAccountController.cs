@@ -32,12 +32,21 @@ namespace Nap.Demo.WebAPI.Controllers
         }
 
         // GET: api/UserAccount
+        /// <summary>
+        /// Get a list of all UserAccounts.
+        /// </summary>
+        /// <returns>List of all UserAccounts</returns>
         public IEnumerable<UserAccount> Get()
         {
             return _userAccountRepository.GetAll();
         }
 
         // GET: api/UserAccount/5
+        /// <summary>
+        /// Get a particular UserAcount by ID.
+        /// </summary>
+        /// <param name="id">ID number for the UserAccount to get.</param>
+        /// <returns></returns>
         public UserAccount Get(int id)
         {
             var userAccount = _userAccountRepository.GetUserAccount(id);
@@ -49,6 +58,11 @@ namespace Nap.Demo.WebAPI.Controllers
         }
 
         // POST: api/UserAccount
+        /// <summary>
+        /// Add a new UserAccount to the collection of UserAccounts.
+        /// </summary>
+        /// <param name="value">Json document containing all the fields to populate the new UserAccount.</param>
+        /// <returns></returns>
         public void Post([FromBody]UserAccount value)
         {
             UserAccount uaAdded = _userAccountRepository.Add(value);
@@ -65,6 +79,12 @@ namespace Nap.Demo.WebAPI.Controllers
         }
 
         // PUT: api/UserAccount/5
+        /// <summary>
+        /// Update the values for the given UserAccount as identified by the provided ID.
+        /// </summary>
+        /// <param name="id">ID of the UserAcocunt to update.</param>
+        /// <param name="value">Json document containing the updated values for the UserAccount.</param>
+        /// <returns></returns>
         public void Put(int id, [FromBody]UserAccount value)
         {
             if (!_userAccountRepository.Update(value))
@@ -79,6 +99,10 @@ namespace Nap.Demo.WebAPI.Controllers
         }
 
         // DELETE: api/UserAccount/5
+        /// <summary>
+        /// Delete the UserAccount identified by the provided ID.
+        /// </summary>
+        /// <param name="id">ID of the UserAcocunt to delete.</param>
         public void Delete(int id)
         {
             _userAccountRepository.Remove(id);
