@@ -13,3 +13,7 @@ tests, DI/IoC etc. are all pluses.
 2. Create a SPA Angular app that utilizes all the above REST api’s.
 
 ## Notes:
+
+- Both @arrochargeek *and* @condiosluzverde are github accounts belonging to james mcfarland.
+- BE SURE to navigate to the Demo folder to get all the Visual Studio solution files for development.
+- The Master solution above is not populated with projects yet.
