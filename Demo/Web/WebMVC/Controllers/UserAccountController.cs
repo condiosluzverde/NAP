@@ -5,6 +5,9 @@ using Nap.Demo.WebMVC.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,6 +20,8 @@ namespace Nap.Demo.WebMVC.Controllers
         private UserAccountViewModel fromFormCollection(FormCollection c)
         {
             UserAccountViewModel vm = new UserAccountViewModel();
+            int id;
+            vm.Id = (int.TryParse(c["Id"], out id)) ? id : -1; // should be a public const from UserAccount class - not a literal here.
             vm.Name = c["Name"];
             vm.Address = c["Address"];
             vm.Postal = c["Postal"];
@@ -65,7 +70,7 @@ namespace Nap.Demo.WebMVC.Controllers
 
                 UserAccountViewModel vm = fromFormCollection(collection);
                 UserAccount model = new UserAccount(vm.Name, vm.Address, vm.Postal, vm.Email);
-                //UserAccount newModel = nds.Add(model);
+                nds.Add(model);
 
                 return RedirectToAction("Index");
             }
@@ -90,13 +95,9 @@ namespace Nap.Demo.WebMVC.Controllers
             try
             {
                 UserAccountViewModel vm = fromFormCollection(collection);
-                UserAccount model = new Models.UserAccount(vm.Id, vm.Name, vm.Address, vm.Postal, vm.Email);
+                UserAccount model = new UserAccount(vm.Id, vm.Name, vm.Address, vm.Postal, vm.Email);
                 bool success = nds.Update(model);
-
-                if (!success)
-                {
-                    // add error here
-                }
+                // Note sure what I would do here with the success value - it's been setup so that NapDemoService throws exceptions.
                 return RedirectToAction("Index");
             }
             catch

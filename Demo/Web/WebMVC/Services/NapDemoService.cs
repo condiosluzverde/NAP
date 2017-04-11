@@ -14,7 +14,15 @@ namespace Nap.Demo.WebMVC.Services
 {
     public class NapDemoService
     {
-        private const string DemoApiUrl = "http://localhost:9001/api/";
+        private const string DemoApiUrl = "http://localhost:9000/api/";
+        private const string DemoApiAllowedOrigin = "http://localhost:9001";
+
+        private void initHttpClient(HttpClient client)
+        {
+            client.BaseAddress = new Uri(DemoApiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
 
         public List<UserAccount> GetAll()
         {
@@ -22,15 +30,13 @@ namespace Nap.Demo.WebMVC.Services
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(DemoApiUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                initHttpClient(client);
+
                 var response = client.GetAsync("UserAccount").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    string responseString = response.Content.ReadAsStringAsync().Result;
-                    results = JsonConvert.DeserializeObject<List<UserAccount>>(responseString);
-                }
+                response.EnsureSuccessStatusCode();
+
+                string responseString = response.Content.ReadAsStringAsync().Result;
+                results = JsonConvert.DeserializeObject<List<UserAccount>>(responseString);
             }
 
             return results;
@@ -41,49 +47,41 @@ namespace Nap.Demo.WebMVC.Services
             UserAccount result = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(DemoApiUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                initHttpClient(client);
+
                 var response = client.GetAsync("UserAccount/" + id.ToString()).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    string responseString = response.Content.ReadAsStringAsync().Result;
-                    result = JsonConvert.DeserializeObject<UserAccount>(responseString);
-                }
+                response.EnsureSuccessStatusCode();
+
+                string responseString = response.Content.ReadAsStringAsync().Result;
+                result = JsonConvert.DeserializeObject<UserAccount>(responseString);
             }
 
             return result;
         }
 
-        public UserAccount Add(UserAccount item)
+        public void Add(UserAccount item)
         {
-            UserAccount result = null;
-
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(DemoApiUrl);
-                client.DefaultRequestHeaders.Clear();
+                initHttpClient(client);
+
                 string jsonContent = JsonConvert.SerializeObject(item);
                 StringContent httpContent = new System.Net.Http.StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-                var response = client.PostAsync("UserAccount", httpContent).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    //string responseString = response.Content.ReadAsStringAsync().Result;
-                    //result = JsonConvert.DeserializeObject<UserAccount>(responseString);
-                }
-            }
 
-            return result;
+                var response = client.PostAsync("UserAccount", httpContent).Result;
+                response.EnsureSuccessStatusCode();
+            }
         }
 
         public void Remove(int id)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(DemoApiUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                initHttpClient(client);
+                client.DefaultRequestHeaders.Add("Origin", DemoApiAllowedOrigin);
+
                 var response = client.DeleteAsync("UserAccount/" + id.ToString()).Result;
+                response.EnsureSuccessStatusCode();
             }
         }
 
@@ -92,15 +90,18 @@ namespace Nap.Demo.WebMVC.Services
             bool result = false;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(DemoApiUrl);
-                client.DefaultRequestHeaders.Clear();
+                initHttpClient(client);
+                client.DefaultRequestHeaders.Add("Origin", DemoApiAllowedOrigin);
+
                 string jsonContent = JsonConvert.SerializeObject(item);
                 StringContent httpContent = new System.Net.Http.StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-                var response = client.PutAsync("UserAccount", httpContent).Result;
+
+                var response = client.PutAsync("UserAccount/" + item.Id.ToString(), httpContent).Result;
+                response.EnsureSuccessStatusCode();
+
                 result = response.IsSuccessStatusCode;
             }
             return result;
-
         }
     }
 }
