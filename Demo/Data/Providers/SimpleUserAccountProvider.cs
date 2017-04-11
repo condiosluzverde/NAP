@@ -62,8 +62,7 @@ namespace Nap.Demo.Data
                 return false;
             }
             _account.RemoveAt(index);
-            _account.Add(item);  // jam20170328 - nicely adds back removed items, so we never go empty?
-
+            _account.Add(item);
             return true;
         }
 
