@@ -15,6 +15,8 @@ namespace Nap.Demo.WebAPI
             // The Register() method here is making a decision to inject the dependency on the SimpleUserAccountProvider as the UserAccount repository impl.
             config.Properties.TryAdd("UserAccountRepository", new Repository.UserAccountRepository(Data.ProviderFactory.GetSimpleUserAccountProvider()));
 
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

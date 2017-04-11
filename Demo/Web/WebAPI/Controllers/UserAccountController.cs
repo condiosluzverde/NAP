@@ -8,9 +8,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Nap.Demo.WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:9001", headers: "*", methods: "*")]
     public class UserAccountController : ApiController
     {
         // For the sample, inject the simple provider literally here (requires reference to .Data (which should be encapsulated behind .Provider)
@@ -32,7 +34,6 @@ namespace Nap.Demo.WebAPI.Controllers
         // GET: api/UserAccount
         public IEnumerable<UserAccount> Get()
         {
-            //return new string[] { "value1", "value2" };
             return _userAccountRepository.GetAll();
         }
 
@@ -40,19 +41,41 @@ namespace Nap.Demo.WebAPI.Controllers
         public UserAccount Get(int id)
         {
             var userAccount = _userAccountRepository.GetUserAccount(id);
+            if (userAccount == null)
+            {
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
+            }
             return userAccount;
         }
 
         // POST: api/UserAccount
         public void Post([FromBody]UserAccount value)
         {
-            _userAccountRepository.Add(value);
+            UserAccount uaAdded = _userAccountRepository.Add(value);
+
+            if (uaAdded == null)
+            {
+                var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent(string.Format("Add failed for UserAccount with Name: {0}", value.Name)),
+                    ReasonPhrase = "Repository error during Add."
+                };
+                throw new HttpResponseException(resp);
+            }
         }
 
         // PUT: api/UserAccount/5
         public void Put(int id, [FromBody]UserAccount value)
         {
-            _userAccountRepository.Update(value);
+            if (!_userAccountRepository.Update(value))
+            {
+                var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent(string.Format("Update failed for UserAccount with Id: {0} / Name: {1}", value.Id, value.Name)),
+                    ReasonPhrase = "Repository error during Update."
+                };
+                throw new HttpResponseException(resp);
+            }
         }
 
         // DELETE: api/UserAccount/5
